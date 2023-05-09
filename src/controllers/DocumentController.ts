@@ -47,7 +47,9 @@ export class DocumentController extends BaseController {
             strategies: [QlikStrategies.QesCookie],
         },
         response: {
-            schema: Joi.array().items(documentSchema),
+            schema: Joi.array()
+                .items(documentSchema)
+                .label('DocumentArrayResponse'),
         },
     })
     public async getDocuments(request: Request, h: ResponseToolkit) {
