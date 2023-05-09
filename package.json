@@ -1,0 +1,52 @@
+{
+    "name": "myzurich-gca-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prestart": "npm run tsc",
+        "test": "jest",
+        "docker-dev": "npm install && tsc-watch --onSuccess \"node build/index.js\"",
+        "compile-run": "npm run tsc && node build/index.js",
+        "build": "npm run tsc",
+        "start": "node build/index.js",
+        "watch": "tsc-watch --onSuccess \"node build/index.js\"",
+        "tsc": "tsc",
+        "win-svc-install": "npm run tsc && node ./build/service-install.js",
+        "win-svc-uninstall": "node ./build/service-uninstall.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/bell": "^12.3.0",
+        "@hapi/boom": "^9.1.0",
+        "@hapi/hapi": "^20.2.2",
+        "@hapi/inert": "^6.0.1",
+        "@hapi/vision": "^6.0.0",
+        "axios": "^0.21.4",
+        "dotenv": "^10.0.0",
+        "hapi-decorators": "^2.0.0",
+        "hapi-dev-errors": "^4.0.0",
+        "hapi-swagger": "^14.5.5",
+        "joi": "^17.4.2",
+        "node-windows": "^1.0.0-beta.6",
+        "reflect-metadata": "^0.1.13",
+        "tsyringe": "^4.1.0",
+        "underscore": "^1.13.1",
+        "winston": "^3.3.3",
+        "winston-daily-rotate-file": "^4.5.5"
+    },
+    "devDependencies": {
+        "@types/hapi__hapi": "^20.0.9",
+        "@types/hapi__inert": "^5.2.0",
+        "@types/hapi__vision": "^5.5.1",
+        "@types/node": "^13.9.8",
+        "@types/node-windows": "^0.1.1",
+        "@types/uuid": "^8.3.0",
+        "tsc-watch": "^4.2.3",
+        "typescript": "^3.8.3"
+    },
+    "engines": {
+        "node": ">=12.6.1"
+    }
+}
