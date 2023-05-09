@@ -6,6 +6,7 @@ import * as Joi from 'joi';
 import { BaseController } from './BaseController';
 import axios from 'axios';
 import { documentSchema } from '../validators';
+import { QlikStrategies } from '../lib/strategies';
 
 interface Document {
     id: number;
@@ -42,6 +43,9 @@ export class DocumentController extends BaseController {
     @options({
         description: 'Get all documents',
         tags: ['api', 'documents'],
+        auth: {
+            strategies: [QlikStrategies.QesCookie],
+        },
         response: {
             schema: Joi.array().items(documentSchema),
         },
@@ -54,6 +58,9 @@ export class DocumentController extends BaseController {
     @options({
         description: 'Get a document by ID',
         tags: ['api', 'documents'],
+        auth: {
+            strategies: [QlikStrategies.QesCookie],
+        },
         response: {
             schema: documentSchema,
         },
@@ -78,6 +85,9 @@ export class DocumentController extends BaseController {
     @options({
         description: 'Get a PDF version of a document by ID',
         tags: ['api', 'documents'],
+        auth: {
+            strategies: [QlikStrategies.QesCookie],
+        },
         validate: {
             params: Joi.object({
                 id: Joi.number().integer().min(1),
